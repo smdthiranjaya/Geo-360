@@ -1,0 +1,17 @@
+.weather-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh; /* Use the full height of the viewport */
+    padding: 20px; /* Add some padding around */
+  }
+  
+  /* Style the map container if necessary */
+  .leaflet-container {
+    margin-top: 20px; /* Add space between the title and the map */
+    border-radius: 10px; /* Optional: adds rounded corners to your map */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Optional: adds a slight shadow for depth */
+  }
+  
