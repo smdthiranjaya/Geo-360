@@ -11,6 +11,33 @@ const WeatherPage = () => {
         airPressure: { max: 0, min: 0, avg: 0 },
         windSpeed: { max: 0, min: 0, avg: 0 }
     });
+    const [email, setEmail] = useState('');
+    const [city, setCity] = useState('');
+    
+    const cities = ['Colombo', 'Kandy', 'Galle', 'Jaffna']; // Add more cities as needed
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      
+      try {
+        const response = await fetch('https://safe-hollows-21457-d3665684dacd.herokuapp.com/api/subscribe', { // Ensure this is the correct endpoint
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, city }),
+        });
+        
+        if (response.ok) {
+          alert('Subscription successful!');
+          setEmail('');
+          setCity('');
+        } else {
+          alert('Subscription failed. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error subscribing:', error);
+        alert('An error occurred. Please try again.');
+      }
+    };
 
     useEffect(() => {
         const fetchWeatherData = async () => {
@@ -79,36 +106,70 @@ const WeatherPage = () => {
                 <img src={logo} alt="Logo" className="logo" />
                 <h1>Geo 360 Live</h1>
             </div>
+            <div className="content-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div className="weather-stats">
-                <h2>Last 24 Hours</h2>
-                <div className="stat-group">
-                    <h3>Temperature (°C)</h3>
-                    <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.temperature.max.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.temperature.min.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.temperature.avg.toFixed(1)}</p>
+                      <h2>Last 24 Hours</h2>
+                      <div className="stat-group">
+                          <h3>Temperature (°C)</h3>
+                          <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.temperature.max.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.temperature.min.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.temperature.avg.toFixed(1)}</p>
+                      </div>
+                      <div className="stat-group">
+                          <h3>Humidity (%)</h3>
+                          <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.humidity.max.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.humidity.min.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.humidity.avg.toFixed(1)}</p>
+                      </div>
+                      <div className="stat-group">
+                          <h3>Air Pressure (hPa)</h3>
+                          <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.airPressure.max.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.airPressure.min.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.airPressure.avg.toFixed(1)}</p>
+                      </div>
+                      <div className="stat-group">
+                          <h3>Wind Speed (km/h)</h3>
+                          <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.windSpeed.max.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.windSpeed.min.toFixed(1)}</p>
+                          <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.windSpeed.avg.toFixed(1)}</p>
+                      </div>
+                  </div>
+                <div className="weather-data" style={{ flex: 1 }}>
+                    <MapComponent weatherData={weatherData} />
                 </div>
-                <div className="stat-group">
-                    <h3>Humidity (%)</h3>
-                    <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.humidity.max.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.humidity.min.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.humidity.avg.toFixed(1)}</p>
+                <div className="content-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div className="weather-stats2">
+                    <h2>Subscribe to Weather Updates</h2>
+                    <h5>Catch up on your daily city weather updates, including max, min, and average updates.</h5>
+                    <form onSubmit={handleSubmit}>
+                        <div >
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                requiredv
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="city">City:</label>
+                            <select id="city" value={city} onChange={(e) => setCity(e.target.value)} required>
+                                <option value="">Select a city</option>
+                                {cities.map((city) => (
+                                    <option key={city} value={city}>{city}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <button type="submit">Subscribe</button>
+                    </form>
                 </div>
-                <div className="stat-group">
-                    <h3>Air Pressure (hPa)</h3>
-                    <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.airPressure.max.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.airPressure.min.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.airPressure.avg.toFixed(1)}</p>
-                </div>
-                <div className="stat-group">
-                    <h3>Wind Speed (km/h)</h3>
-                    <p><span role="img" aria-label="Maximum">🔺</span> Max: {weatherStats.windSpeed.max.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Minimum">🔻</span> Min: {weatherStats.windSpeed.min.toFixed(1)}</p>
-                    <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.windSpeed.avg.toFixed(1)}</p>
                 </div>
             </div>
-            <MapComponent weatherData={weatherData} />
         </div>
-    );
+      );
+      
      
     
 };

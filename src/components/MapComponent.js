@@ -7,7 +7,7 @@ import markerIcon from '../assets/marker.gif';
 const MapComponent = ({ weatherData }) => {
   console.log(weatherData);
   return (
-    <MapContainer center={[7.8731, 80.7718]} zoom={8} style={{ height: "700px", width: "70%" }}>
+    <MapContainer center={[7.8731, 80.7718]} zoom={8} style={{ height: "700px", width: "700px" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {weatherData.map(({ id, city, lat, lng, temperature, humidity, airPressure, wind_speed, weatherDescriptions, observationTime, weatherIcons, isDay }) => {
         // Define a custom icon for each marker using its weatherIcons
