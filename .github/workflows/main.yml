@@ -21,6 +21,8 @@ jobs:
         npm install
         npm run build
         npm run test
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
 
   deploy:
     needs: build
