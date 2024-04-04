@@ -20,7 +20,7 @@ const WeatherPage = () => {
       e.preventDefault();
       
       try {
-        const response = await fetch('https://safe-hollows-21457-d3665684dacd.herokuapp.com/api/subscribe', { // Ensure this is the correct endpoint
+        const response = await fetch('https://www.geo360live.tech/api/subscribe', { // Ensure this is the correct endpoint
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, city }),
@@ -42,7 +42,7 @@ const WeatherPage = () => {
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {
-                const response = await fetch('https://safe-hollows-21457-d3665684dacd.herokuapp.com/api/weather', {
+                const response = await fetch('https://www.geo360live.tech/api/weather', {
                     headers: {
                         'X-API-Key': 'geo360apisecret'
                     }
