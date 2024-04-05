@@ -14,7 +14,7 @@ const WeatherPage = () => {
     const [email, setEmail] = useState('');
     const [city, setCity] = useState('');
     
-    const cities = ['Colombo', 'Kandy', 'Galle', 'Jaffna', 'Jaffna', 'Jaffna', 'Trincomalee', 'Vavuniya', 'Anuradhapura', 'Puttalam', 'Polonnaruwa', 'Batticaloa', 'Kurunegala', 'Ratnapura', 'Nuwara Eliya', 'Badulla', 'Pottuvil'];
+    const cities = ['Colombo', 'Kandy', 'Galle', 'Jaffna', 'Trincomalee', 'Vavuniya', 'Anuradhapura', 'Puttalam', 'Polonnaruwa', 'Batticaloa', 'Kurunegala', 'Ratnapura', 'Nuwara Eliya', 'Badulla', 'Pottuvil'];
   
     const handleSubmit = async (e) => {
       e.preventDefault();
