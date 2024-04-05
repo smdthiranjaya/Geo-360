@@ -14,13 +14,13 @@ const WeatherPage = () => {
     const [email, setEmail] = useState('');
     const [city, setCity] = useState('');
     
-    const cities = ['Colombo', 'Kandy', 'Galle', 'Jaffna']; // Add more cities as needed
+    const cities = ['Colombo', 'Kandy', 'Galle', 'Jaffna', 'Jaffna', 'Jaffna', 'Trincomalee', 'Vavuniya', 'Anuradhapura', 'Puttalam', 'Polonnaruwa', 'Batticaloa', 'Kurunegala', 'Ratnapura', 'Nuwara Eliya', 'Badulla', 'Pottuvil'];
   
     const handleSubmit = async (e) => {
       e.preventDefault();
       
       try {
-        const response = await fetch('https://www.geo360live.tech/api/subscribe', { // Ensure this is the correct endpoint
+        const response = await fetch('https://www.geo360live.tech/api/subscribe', { 
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, city }),

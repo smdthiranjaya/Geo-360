@@ -10,12 +10,11 @@ const MapComponent = ({ weatherData }) => {
     <MapContainer center={[7.8731, 80.7718]} zoom={8} style={{ height: "700px", width: "700px" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {weatherData.map(({ id, city, lat, lng, temperature, humidity, airPressure, wind_speed, weatherDescriptions, observationTime, weatherIcons, isDay }) => {
-        // Define a custom icon for each marker using its weatherIcons
         const dynamicIcon = new L.Icon({
-          iconUrl: weatherIcons, // This dynamically sets the icon based on weatherIcons
-          iconSize: [30, 30], // Size of the icon
-          iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
-          popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
+          iconUrl: weatherIcons, 
+          iconSize: [30, 30],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
         });
 
         return (
