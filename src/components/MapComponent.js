@@ -10,9 +10,7 @@ const MapComponent = ({ weatherData }) => {
   // Return JSX for rendering the map
   return (
     <MapContainer center={[7.8731, 80.7718]} zoom={8} style={{ height: "700px", width: "700px" }}>
-      // Add a TileLayer to the map with OpenStreetMap tiles
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      // Iterate over weatherData to create markers for each data point
       {weatherData.map(({ id, city, lat, lng, temperature, humidity, airPressure, wind_speed, weatherDescriptions, observationTime, weatherIcons, isDay }) => {
         const dynamicIcon = new L.Icon({
           iconUrl: weatherIcons, 
@@ -24,7 +22,6 @@ const MapComponent = ({ weatherData }) => {
         // Render a Marker for each weather data point with a dynamic icon
         return (
           <Marker key={id} position={[lat, lng]} icon={dynamicIcon}>
-            // Display a Popup with weather and city details for each marker
             <Popup>
               <strong>{city}      <img src={markerIcon} alt="weather icon" style={{ width: "20px" }} /> </strong><br /><br />
               Daytime: {isDay ? 'Yes' : 'No'}<br />

@@ -101,7 +101,7 @@ const WeatherPage = () => {
         };
 
         fetchWeatherData();
-        
+
         // Set an interval to refresh weather data every 5 minutes
         const interval = setInterval(fetchWeatherData, 300000); 
 
@@ -111,7 +111,6 @@ const WeatherPage = () => {
     // Render the WeatherPage component with weather statistics, map, and subscription form
     return (
         <div className="weather-page-container">
-            // Display the app logo and header
             <div className="page-header">
                 <img src={logo} alt="Logo" className="logo" />
                 <h1>Geo 360 Live</h1>
@@ -144,11 +143,9 @@ const WeatherPage = () => {
                           <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.windSpeed.avg.toFixed(1)}</p>
                       </div>
                   </div>
-                  // Display weather statistics and a map with weather data markers
                 <div className="weather-data" style={{ flex: 1 }}>
                     <MapComponent weatherData={weatherData} />
                 </div>
-                // Subscription form for weather updates
                 <div className="content-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div className="weather-stats2">
                     <h2>Subscribe to Weather Updates</h2>
