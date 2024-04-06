@@ -8,7 +8,6 @@ function App() {
     // Use the Router component to enable routing within the app
     <Router>
       <Routes>
-      // Define the Routes for your application
         <Route path="/" element={<WeatherPage />} />
         {}
       </Routes>
