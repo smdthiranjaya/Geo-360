@@ -128,10 +128,10 @@
     border-radius: 5px;
     cursor: pointer;}
    
-    .weather-stats2 h5 {
-        margin-top: 10px;
-        margin-bottom: 20px;
-        color: #666; 
-        font-size: 13px;
-        line-height: 1.4;
-    }
+  .weather-stats2 h5 {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      color: #666; 
+      font-size: 13px;
+      line-height: 1.4;
+  }

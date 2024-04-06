@@ -4,6 +4,7 @@ import './WeatherPage.css';
 import logo from '../assets/logo.png';
 
 const WeatherPage = () => {
+    // Initialize state for weather data and statistical information
     const [weatherData, setWeatherData] = useState([]);
     const [weatherStats, setWeatherStats] = useState({
         temperature: { max: 0, min: 0, avg: 0 },
@@ -11,15 +12,19 @@ const WeatherPage = () => {
         airPressure: { max: 0, min: 0, avg: 0 },
         windSpeed: { max: 0, min: 0, avg: 0 }
     });
+    // Initialize state for user input (email and city for subscription)
     const [email, setEmail] = useState('');
     const [city, setCity] = useState('');
     
+    // List of cities for the subscription dropdown
     const cities = ['Colombo', 'Kandy', 'Galle', 'Jaffna', 'Trincomalee', 'Vavuniya', 'Anuradhapura', 'Puttalam', 'Polonnaruwa', 'Batticaloa', 'Kurunegala', 'Ratnapura', 'Nuwara Eliya', 'Badulla', 'Pottuvil'];
   
+    // handleSubmit function to process subscription form submissions
     const handleSubmit = async (e) => {
       e.preventDefault();
       
       try {
+         // Fetch request to subscribe user to weather updates
         const response = await fetch('https://www.geo360live.tech/api/subscribe', { 
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -39,7 +44,9 @@ const WeatherPage = () => {
       }
     };
 
+    // useEffect hook to fetch weather data and update stats on component mount and at intervals
     useEffect(() => {
+        // Async function to fetch weather data from API
         const fetchWeatherData = async () => {
             try {
                 const response = await fetch('https://www.geo360live.tech/api/weather', {
@@ -94,14 +101,17 @@ const WeatherPage = () => {
         };
 
         fetchWeatherData();
-
+        
+        // Set an interval to refresh weather data every 5 minutes
         const interval = setInterval(fetchWeatherData, 300000); 
 
         return () => clearInterval(interval);
     }, []);
 
+    // Render the WeatherPage component with weather statistics, map, and subscription form
     return (
         <div className="weather-page-container">
+            // Display the app logo and header
             <div className="page-header">
                 <img src={logo} alt="Logo" className="logo" />
                 <h1>Geo 360 Live</h1>
@@ -134,9 +144,11 @@ const WeatherPage = () => {
                           <p><span role="img" aria-label="Average">🔍</span> Avg: {weatherStats.windSpeed.avg.toFixed(1)}</p>
                       </div>
                   </div>
+                  // Display weather statistics and a map with weather data markers
                 <div className="weather-data" style={{ flex: 1 }}>
                     <MapComponent weatherData={weatherData} />
                 </div>
+                // Subscription form for weather updates
                 <div className="content-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div className="weather-stats2">
                     <h2>Subscribe to Weather Updates</h2>
