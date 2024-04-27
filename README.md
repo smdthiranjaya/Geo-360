@@ -34,11 +34,11 @@ Geo-360 is a React-based application designed to provide users with interactive 
 To develop a single-page application (SPA) and RESTful Web API that provide real-time weather updates (temperature, humidity, air pressure, wind speed) for Sri Lanka, enhancing the current weather information system.
  
 Scope
-• RESTful API: To serve real-time weather data.
-• SPA: Interactive map displaying live weather data.
-• Data Simulation: Use generated data for system testing.
-• Cloud Deployment: Ensure scalability and accessibility.
-• Security & Testing: Implement security measures and conduct thorough testing.
+- RESTful API: To serve real-time weather data.
+- SPA: Interactive map displaying live weather data.
+- Data Simulation: Use generated data for system testing.
+- Cloud Deployment: Ensure scalability and accessibility.
+- Security & Testing: Implement security measures and conduct thorough testing.
 
 ## SYSTEM DESIGN AND ARCHITECTURE
 
