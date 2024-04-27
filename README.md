@@ -12,7 +12,7 @@ https://www.geo360live.tech
 ### Backend Server (Heroku) Swagger Link:
 https://www.geo360live.tech/api-docs/#/
 
-### React WebApp (Azure) Hosted Link:
+### React WebApp (Render) Hosted Link:
 https://geo360live.tech/
 
 ### React WebApp (Render) Hosted Link:
