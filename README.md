@@ -26,6 +26,8 @@ https://www.youtube.com/watch?v=HyUKIbl_MlI
 
 Geo-360 is a React-based application designed to provide users with interactive geographical data visualization. Utilizing React with Leaflet for mapping, and a set of testing libraries for robust development, Geo-360 aims to deliver a seamless user experience in exploring geospatial information.
 
+![Artificial intelligence to Enhance Language Skills Presentation in Blue and Purple 3D Modern Style](https://github.com/smdthiranjaya/Geo-360/assets/37227365/2311bfe5-c4c8-4058-85de-6b9969f199b7)
+
 ![Screenshot 2567-04-27 at 17 15 52](https://github.com/smdthiranjaya/Geo-360/assets/37227365/ff3de2ce-1e39-40eb-b7cf-425e740eb201)
 
 ## INTRODUCTION
